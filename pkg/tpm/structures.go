@@ -158,3 +158,44 @@ type PCRLog struct {
 	Firmware string
 	PcrList  []PCRDigestInfo
 }
+
+// [2] http://kib.kiev.ua/x86docs/SDMs/315168-011.pdf (Pre-TrEE MLE Guide)
+// [3] https://www.intel.com/content/dam/www/public/us/en/documents/guides/intel-txt-software-development-guide.pdf
+
+// TxtEventLogContainer is log header for TPM1.2 TXT log
+type TxtEventLogContainer struct {
+	Signature [20]uint8
+	Reserved [12]uint8
+	ContainerVerMajor uint8
+	ContainerVerMinor uint8
+	PcrEventVerMajor uint8
+	PcrEventVerMinor uint8
+	Size uint32
+	PcrEventsOffset uint32
+	NextEventOffset uint32
+	//PcrEvents []byte
+}
+
+// TxtHeapEventLogDescr is TPM2 TXT log header before TrEE/UEFI format adoption
+type TxtHeapEventLogDescr struct {
+	Alg uint16
+	Reserved uint16
+	PhysAddr uint64
+	Size uint32
+	PcrEventsOffset uint32
+	NextEventOffset uint32
+}
+
+// TxtHeapEventLogPtrElt2 is the Heap Element for TPM2 before TrEE/UEFI format adoption
+type TxtHeapEventLogPtrElt2 struct {
+	Count uint32
+	EventLogDescr []HeapEventLogDescr
+}
+
+// TxtHeapEventLogPtrElt21 is the Heap Element for TPM2 conforming to TrEE/UEFI format
+type TxtHeapEventLogPtrElt21 struct {
+	PhysicalAddress uint64
+	AllocatedEventContainerSize uint32
+	FirstRecordOffset uint32
+	NextRecordOffset uint32
+}

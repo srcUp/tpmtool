@@ -158,3 +158,58 @@ const HCRTM string = "HCRTM"
 
 // FirmwareType (BIOS)
 type FirmwareType string
+
+// TXT TPM1.2 log container signature
+const Txt12EvtLogSignature "TXT Event Container\0"
+
+// TXT TPM1.2 log versions
+const (
+	Txt12EvtLog_Cntnr_Major_Ver 1
+	Txt12EvtLog_Cntnr_Minor_Ver 0
+	Txt12EvtLog_Evt_Major_Ver 1
+	Txt12EvtLog_Evt_Minor_Ver 0
+)
+
+type Txt12EvtType uint32
+const (
+	Txt12EvTypeBase = iota + 0x400
+	Txt12EvTypePcrMapping
+	Txt12EvTypeHashStart
+	_
+	Txt12EvTypeMleHash
+	Txt12EvTypeBiosAcRegDaTa = iota + 0x405
+	Txt12EvTypeCpuScrtmStat
+	Txt12EvTypeLcpControlHash
+	Txt12EvTypeElementsHash
+	Txt12EvTypeStmHash
+	Txt12EvTypeOsSinitDataCapHash
+	Txt12EvTypeSinitPubKeyHash
+	Txt12EvTypeLcpHash
+)
+
+type Txt20EvtType uint32
+const (
+	Txt20EvTypeBase = iota + 0x400
+	Txt20EvTypePcrMapping
+	Txt20EvTypeHashStart
+	Txt20EvTypeCombinedHash
+	Txt20EvTypeMleHash
+	Txt20EvTypeBiosAcRegData = iota + 0x405
+	Txt20EvTypeCpuScrtmStat
+	Txt20EvTypeLcpControlHash
+	Txt20EvTypeElementsHash
+	Txt20EvTypeStmHash
+	Txt20EvTypeOsSinitDataCapHash
+	Txt20EvTypeSinitPubKeyHash
+	Txt20EvTypeLcpHash
+	Txt20EvTypeLcpDetailsHash
+	Txt20EvTypeLcpAuthoritiesHash
+	Txt20EvTypeNvInfoHash
+	Txt20EvTypeColdBootBiosHash
+	Txt20EvTypeKmHash
+	Txt20EvTypeBpmHash
+	Txt20EvTypeKmInfoHash
+	Txt20EvTypeBpmInfoHash
+	Txt20EvTypeBootPolHash
+	Txt20EvTypeCapValue = iota + 0x4fb
+)
