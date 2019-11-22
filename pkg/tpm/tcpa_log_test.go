@@ -4,7 +4,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/systemboot/tpmtool/pkg/tpmtool"
+	"github.com/u-root/u-root/pkg/tpmtool-pcrlog/pkg/tpmtool"
+	// "github.com/systemboot/tpmtool/pkg/tpmtool"
 )
 
 func TestParseTPM12BiosEventLog(t *testing.T) {

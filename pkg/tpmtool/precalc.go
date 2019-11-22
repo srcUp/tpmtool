@@ -9,7 +9,8 @@ import (
 	"os"
 
 	"github.com/koding/multiconfig"
-	"github.com/systemboot/tpmtool/pkg/tpm"
+	"github.com/u-root/u-root/pkg/tpmtool-pcrlog/pkg/tpm"
+	// "github.com/systemboot/tpmtool/pkg/tpm"
 )
 
 // TPMInterface is a global TPM interface
